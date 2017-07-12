@@ -36,17 +36,16 @@ RUN apt-get install -y tcsh xfonts-base python-qt4       \
                         libjpeg62 xvfb xterm vim curl
 RUN apt-get install -y libglu1-mesa-dev libglw1-mesa     \
                         libxm4 build-essential
+
+#-------AFNI INSTALL----------------------------------------------------------#
+# setup of AFNI, which provides robust modifications of many of neuroimaging
+# algorithms
 RUN chsh -s /usr/bin/tcsh && \
     curl -O https://afni.nimh.nih.gov/pub/dist/bin/linux_fedora_21_64/@update.afni.binaries && \
     tcsh @update.afni.binaries -package linux_ubuntu_16_64  -do_extras && \
     chsh -s /bin/bash && \
     cp $HOME/abin/AFNI.afnirc $HOME/.afnirc && \
     echo "PATH=$PATH:/root/abin" >> ~/.bashrc
-
-#-------AFNI INSTALL----------------------------------------------------------#
-# setup of AFNI, which provides robust modifications of many of neuroimaging
-# algorithms
-
 
 #---------FSL INSTALL---------------------------------------------------------#
 # setup FSL using debian
@@ -84,7 +83,7 @@ RUN \
     pandas
 
 RUN \
-    git clone -b eric-dev-gkiar-fmri $NDMG_URL /ndmg && \
+    git clone -b eric-dev-bg $NDMG_URL /ndmg && \
     cd /ndmg && \
     python setup.py install 
 
