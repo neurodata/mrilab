@@ -32,7 +32,7 @@ RUN apt-get install -y libglu1-mesa-dev libglw1-mesa     \
                         libxm4 build-essential
 
 RUN R -e "devtools::install_github('ebridge2/Discriminability')"
-RUN R -e "install.packages(c('Rmisc', 'png', 'stringr', 'mclust'), repos='${CRAN_URL}')"
+RUN R -e "install.packages(c('Rmisc', 'png', 'stringr', 'mclust', 'emdbook'), repos='${CRAN_URL}')"
 RUN R -e "source('https://bioconductor.org/biocLite.R'); biocLite('rhdf5')"
 #-------JUPYTER SETUP--------------------------------------------------------#
 
