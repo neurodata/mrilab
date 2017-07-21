@@ -23,4 +23,4 @@ In Figures (1) and (2) above, we can see that iGraph slightly outperforms FlashX
 
 ## Array-Tomography Synaptomes
 
-TODO: Randal add some content. 
+TODO: Randal add some content, and I will populate with figures. 
