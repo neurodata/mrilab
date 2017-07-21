@@ -1,8 +1,8 @@
 # MRILAB
 
-[Diffusion-MR Connectomics](./diffusion-mr-connectomics)
+[Diffusion-MR Connectomics](#diffusion-mr-connectomics)
 
-[Array-Tomography Synaptomes](./array-tomography-synaptomes)
+[Array-Tomography Synaptomes](#array-tomography-synaptomes)
 
 ## Diffusion-MR Connectomics
 
