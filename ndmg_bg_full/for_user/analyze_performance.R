@@ -1,3 +1,4 @@
+require(R.utils)
 # a function to rIun performance analysis in the background
 analyze_performance <- function(func, args, path='/tmp', tres=1) {
     system(paste('pkill -f memlog'))
@@ -8,7 +9,12 @@ analyze_performance <- function(func, args, path='/tmp', tres=1) {
     jid <- system(cmd, intern=TRUE)  # run memory logging in background and save job id
 
     ptm <- proc.time()[1]  # previous time
-    out <- do.call(func, args)
+    out <- tryCatch({
+        evalWithTimeout({do.call(func, args)},
+                              timeout=time.limit)
+        }, TimeoutException=function(ex) {return(NaN)},
+        error=function(e) {return(NaN)},
+        warning=function(w) {return(NaN)})
     time <- proc.time()[1] - ptm  # time after function is run
 
     system(paste('kill', jid))  # kill old job
