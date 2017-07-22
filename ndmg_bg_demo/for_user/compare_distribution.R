@@ -15,3 +15,6 @@ compare_distrs <- function(x1, x2) {
     
     return(list(hd=hd, kde_x1=kde_x1, kde_x2=kde_x2))
 }
+hell_dist <- function(a, b) {
+    return(1/sqrt(2)*norm(sqrt(a) - sqrt(b), '2'))
+}
