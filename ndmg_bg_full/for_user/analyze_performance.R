@@ -1,6 +1,6 @@
 require(R.utils)
 # a function to rIun performance analysis in the background
-analyze_performance <- function(func, args, path='/tmp', tres=1) {
+analyze_performance <- function(func, args, path='/tmp', tres=1, time.limit=60) {
     system(paste('pkill -f memlog'))
     memtxt <- paste(path, '/mem.txt', sep="")
 
