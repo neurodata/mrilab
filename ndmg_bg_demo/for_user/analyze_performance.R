@@ -7,9 +7,9 @@ analyze_performance <- function(func, args, path='/tmp', tres=1) {
 
     jid <- system(cmd, intern=TRUE)  # run memory logging in background and save job id
 
-    ptm <- proc.time()[2]  # previous time
+    ptm <- proc.time()[1]  # previous time
     out <- do.call(func, args)
-    time <- proc.time()[2] - ptm  # time after function is run
+    time <- proc.time()[1] - ptm  # time after function is run
 
     system(paste('kill', jid))  # kill old job
     memdat <- scan(memtxt, what=double(), sep="\n")  # read memory per tres line by line
