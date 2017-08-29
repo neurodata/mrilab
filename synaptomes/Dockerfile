@@ -40,6 +40,7 @@ RUN useradd -m -s /bin/bash sic-user
 
 RUN mkdir -p /home/sic-user/.jupyter
 COPY jupyter_notebook_config.py /home/sic-user/.jupyter
+COPY for_user/* /home/sic-user/
 WORKDIR /home/sic-user
 
 USER sic-user
